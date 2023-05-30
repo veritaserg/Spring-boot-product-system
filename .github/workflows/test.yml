@@ -17,9 +17,8 @@ jobs:
         run: echo Hello 
 
       - name: Get the version
-        id: vars
-        run: echo ::set-output name=tag::$(echo ${GITHUB_REF:10})  
+        run: echo "BRANCH_NAME=${{ github.ref }}" >> $GITHUB_ENV 
     
       - name: Print the value of tag
-        run: echo ${{ steps.vars.outputs.tag }}   
+        run: echo ${{ env.BRANCH_NAME }}   
         
