@@ -1,0 +1,19 @@
+name: Testing
+
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+    branches:
+      - master
+jobs:
+  build:
+    runs-on: self-hosted
+    steps:
+      - name: Display the path
+        run: echo $PATH
+        shell: bash  
+
+  
+      
