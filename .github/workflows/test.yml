@@ -5,9 +5,6 @@ on:
     branches:
       - master
   pull_request:
-    types:
-      - closed
-
     branches:
       - master
 jobs:
@@ -18,7 +15,7 @@ jobs:
 
       - name: Build and test with Gradle
         run: echo Hello 
-        
+
       - name: Get the version
         id: vars
         run: echo ::set-output name=tag::$(echo ${GITHUB_REF:10})  
