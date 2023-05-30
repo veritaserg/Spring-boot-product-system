@@ -11,5 +11,6 @@ jobs:
   build:
     runs-on: self-hosted
     steps:
+      - uses: actions/checkout@v2
       - name: Display the path
         run: echo "Test Git"
