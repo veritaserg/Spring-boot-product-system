@@ -11,16 +11,13 @@ on:
       - master
 jobs:
   build:
-    if: github.event.review.state == 'approved'
+    if: github.event_name == 'pull_request_review' && github.event.review.state == 'approved'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
 
       - name: Build and test with Gradle
         run: echo Hello 
-
-      - name: Get the version
-        run: echo "BRANCH_NAME=${{ github.event.pull_request.head.ref }}-rc"
 
       - name: Set environment variable
         run: echo "BRANCH_NAME=${{ github.event.pull_request.head.ref }}-rc" >> $GITHUB_ENV
