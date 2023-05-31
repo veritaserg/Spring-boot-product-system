@@ -20,11 +20,11 @@ jobs:
         run: echo Hello 
 
       - name: Get the version
-        run: echo "BRANCH_NAME=${{ github.ref.replace('refs/heads/', '') }}-rc"
+        run: echo "BRANCH_NAME=${{ github.event.pull_request.head.ref }}-rc"
 
       - name: Set environment variable
-        run: echo "BRANCH_NAME=${{ github.ref.replace('refs/heads/', '') }}-rc" >> $GITHUB_ENV
+        run: echo "BRANCH_NAME=${{ github.event.pull_request.head.ref }}-rc" >> $GITHUB_ENV
 
       - name: Print the value of tag
-        run: echo ${{ env.BRANCH_NAME }}   
+        run: echo ${{ env.BRANCH_NAME }}     
         
